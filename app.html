@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quess the Character</title>
+  </head>
+  <body align="center">
+    <h1 style="background-color: goldenrod">Quess This Character</h1>
+    <p>Score: <span id="score">0</span></p>
+    <div>
+      <img id="gambar" src="gambar 1.jpg" width="300" />
+    </div>
+    <br />
+    <div>
+      <input type="text" id="put" />
+      <button onclick="x()">Enter</button>
+    </div>
+    <p id="jawaban"></p>
+    <div>
+      <button onclick="y()">next</button>
+    </div>
+
+    <script>
+      let link = [
+        "gambar 1.jpg",
+        "gambar 2.jpg",
+        "gambar 3.jpg",
+        "gambar 4.jpg",
+      ];
+
+      let coloring = ["goldenrod", "cyan", "red", "lightblue"];
+
+      let list = ["chinatsu kano", "cerydra", "asanagi umi", "haimiya mio"];
+      let input = document.getElementById("put");
+      let output = document.getElementById("jawaban");
+      let art = document.getElementById("gambar");
+
+      let number = 0;
+      let hitung = 0;
+      let num_color = 0;
+
+      function x() {
+        if (input.value.toLowerCase() === list[number]) {
+          document.getElementById("jawaban").innerHTML = "BENAR";
+          hitung += 10;
+
+          document.getElementById("score").textContent = hitung;
+          input.value = "";
+        } else {
+          document.getElementById("jawaban").innerHTML = "salah";
+          hitung -= 10;
+
+          document.getElementById("score").textContent = hitung;
+          input.value = "";
+        }
+      }
+
+      function y() {
+        number++;
+        num_color++;
+
+        if (number >= link.length) {
+          number = 0;
+          num_color = 0;
+        }
+
+        document.getElementById("gambar").src = link[number];
+        document.querySelector("h1").style.backgroundColor =
+          coloring[num_color];
+      }
+    </script>
+  </body>
+</html>
