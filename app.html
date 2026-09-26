@@ -4,10 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>quess the Character</title>
+    <style>
+      h1{
+        border-style: solid;
+        border-radius: 10px;
+      }
+
+      #p01{
+        border-style: solid;
+        background: linear-gradient(to right,skyblue,#ffffff);
+        border-radius: 7px;
+      }
+
+      #gambar{
+        border: solid;
+        border-radius: 20px;
+      }
+
+      button{
+        border: solid;
+        border-radius: 5px;
+        background-color: lightblue;
+      }
+
+      #put{
+        border-style: dashed ;
+      }
+    </style>
   </head>
   <body align="center">
     <h1 style="background-color: goldenrod">Quess This Character</h1>
-    <p>Score: <span id="score">0</span></p>
+    <table align="center">
+      <tr>
+    <th><p id="p01">Score: <span id="score">0</span></p></th>
+    </tr>
+    </table>
     <div>
       <img id="gambar" src="gambar 1.jpg" width="300" />
     </div>
@@ -47,13 +78,15 @@
 
           document.getElementById("score").textContent = hitung;
           input.value = "";
-        } else {
+        } else if(input.value !== list[number]) {
           document.getElementById("jawaban").innerHTML = "salah";
           hitung -= 10;
 
           document.getElementById("score").textContent = hitung;
           input.value = "";
-        }
+        } else if (input.value === "") {
+          document.getElementById("jawaban").innerHTML = "Please give your answer"
+        } 
       }
 
       function y() {
