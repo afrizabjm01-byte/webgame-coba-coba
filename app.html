@@ -78,15 +78,15 @@
 
           document.getElementById("score").textContent = hitung;
           input.value = "";
-        } else if(input.value !== list[number]) {
+        } else if(input.value === "") {
+          document.getElementById("jawaban").innerHTML = "please give the answer";
+        } else{
           document.getElementById("jawaban").innerHTML = "salah";
           hitung -= 10;
 
           document.getElementById("score").textContent = hitung;
           input.value = "";
-        } else if (input.value === "") {
-          document.getElementById("jawaban").innerHTML = "Please give your answer"
-        } 
+        }
       }
 
       function y() {
